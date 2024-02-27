@@ -1,18 +1,21 @@
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306   # 데이터베이스 URL
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root                           # 데이터베이스 사용자 이름
-    password: 1234                           # 데이터베이스 암호
-
 # 서버 설정
 server:
   port: 8080                    # 애플리케이션이 실행될 포트
 
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pmsdatabase   # 데이터베이스 URL
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root                           # 데이터베이스 사용자 이름
+    password: 1234                           # 데이터베이스 암호
+
+
   jpa:
     hibernate:
-      ddl-auto: create          # Hibernate가 데이터베이스 스키마를 자동으로 생성/업데이트하는 옵션
-    show-sql: true
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true  # Hibernate가 생성하는 SQL을 로그로 출력
 
 # 로깅 설정
 logging:
@@ -21,6 +24,17 @@ logging:
     org.springframework: info  # 스프링 프레임워크 패키지의 로그 레벨 설정
     com.example: debug         # 특정 패키지나 클래스의 로그 레벨 설정
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  swagger-ui:
+    operations-sorter: alpha
+    tags-sorter: alpha
+    path: /swagger-ui.html
+    disable-swagger-default-url: true
+    doc-expansion: none
 
 jwt:
   secret-key: bWVnYWR4LWRtcC1zZXJ2aWNlLWRldmVsb3Atc2VjdXJpdHkta2V5LXZhbHVlLTIzMDEzMQ==

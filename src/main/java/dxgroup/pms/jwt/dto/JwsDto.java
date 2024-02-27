@@ -1,8 +1,11 @@
 package dxgroup.pms.jwt.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class JwsDto {
     private String jws;
     private String ref;
