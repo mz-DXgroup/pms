@@ -1,6 +1,5 @@
 package dxgroup.pms.dto.request;
 
-import dxgroup.pms.domain.Role;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
