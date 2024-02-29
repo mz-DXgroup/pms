@@ -23,7 +23,10 @@ public class Project {
     private List<PersonProject> personProjects;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Customer customer ;
+    private Customer customer;
+
+//    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+//    private Assignment assignment;
 
     //======연관관계 편의 메서드=======
     public void addPersonProject(PersonProject personProject) {

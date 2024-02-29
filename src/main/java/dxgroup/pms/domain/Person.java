@@ -37,6 +37,9 @@ public class Person extends AuditingEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private List<PersonProject> personProjects;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "person", fetch = FetchType.LAZY)
+    private FileStore fileStore ;
+
 
     public void addIndeAssignments(IndeAssignment indeAssignment) {
         indeAssignments.add(indeAssignment);
