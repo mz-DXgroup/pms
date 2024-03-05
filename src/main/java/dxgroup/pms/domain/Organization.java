@@ -19,7 +19,6 @@ public class Organization extends AuditingEntity {
     private String code;
     private String name;
     private  boolean isPartner;
-
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")

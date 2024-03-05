@@ -17,16 +17,19 @@ public class Project {
     private String name;
     private String ProjectCode;
     private Phase phase;
-    private  boolean isDelete;
+    private boolean isDelete;
+    private Period period;
 
-    @OneToMany(mappedBy = "project" ,cascade = CascadeType.ALL  )
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<PersonProject> personProjects;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
-//    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
-//    private Assignment assignment;
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private List<Issue> issue;
 
     //======연관관계 편의 메서드=======
     public void addPersonProject(PersonProject personProject) {

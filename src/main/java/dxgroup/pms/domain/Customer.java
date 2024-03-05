@@ -20,4 +20,9 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Project> project;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<CustomerEmployee> customerEmployees;
+    
+    //연관관계 편의 메소드 필요한지 확인 필요
 }
